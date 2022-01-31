@@ -1,0 +1,34 @@
+<!--Aqui hago un llamado a la plantilla base.html-->
+{% extends './base.html' %}
+<!--la informaciòn que coloque dentro de block y end tittle
+se ve reflejada en el contenido pero con el modelo
+de plantilla que se importa de base.html-->
+{% block title%} Lenguajes {% endblock %}
+<!--Aqui en la linea 6 cambiamos la informacion a mostrar
+de la pestaña--> 
+
+{% block body %}
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h1>Lista de componentes electrònicos</h1>
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for leng in lenguajes %}
+                    <tr>
+                        <td>{{loop.index}}</td>
+                        <td>{{leng}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

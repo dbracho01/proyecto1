@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+ <!--lineas 9 al 11 plantillas Css--> 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <!--Aqui cambiamos la informacion de la pesataña
+    pero como estamos exportando hacia las otras pestañas
+colocamos block y end tittle en las otras pestañas-->  
+<title> {% block title%}  {% endblock %} </title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+         crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+</head>
+
+<body>
+    <!--Lineas de la 18 a la 37, plantillas de Boostrap para
+    la barra de colores y navegaciòn y en la LINEA 20 CAMBIAMOS EL COLOR DE LA BARRA
+paleta de colores: primary:azul;secondary:gris;success:verde;danger:rojo;warning:amarillo
+info:azul claro:light:blaco hueso;dark:gris oscuro; white;blanco
+Fondos bg-X Ej:bg-info
+Botones btn-X Ej: Btn primary
+Bordes border-X Ej: Btn-danger
+Texto text-x Ej: Btn-warning--> 
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <button class="btn btn-primary">HOLA</button>
+    
+
+        <!--Titulo de la barra de navegacion,navbar brand (SITIO WEB DE ELECTRONICA)--> 
+        <a class="navbar-brand" href="/">Sitio web de Electrònica</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('mostrarLenguajes') }}">Lenguajes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('contacto') }}">Contacto</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+<!--Lineass de la 39 a la 42, la clase container se utiliza para centrar
+y alinear el texto--> 
+    <div class="container py-3">
+        {% block body %} 
+
+        {% endblock %}
+        <!--lineas 42 al 51 lineas javascript plantillas Boostrap-->
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+        integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous">
+    </script>
+    <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+</body>
+
+</html>

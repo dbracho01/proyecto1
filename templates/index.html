@@ -1,0 +1,13 @@
+<!--La linea 2 de alli llamo a la plantilla base.html-->
+{% extends './base.html' %}
+
+{% block title%} Index {% endblock %}
+<!--Aqui en la linea 4 cambiamos la informacion a mostrar
+de la pestaña--> 
+
+{% block body %}
+<h1>Bienvenidos a mi sitio web de Servicios electrònicos</h1>
+{% endblock %}
+<!--la informacion que coloque dentro del block y end body
+va ser la informacion que se muestre dentro de la pàgina
+pero con el modelo de plantilla que es importado de base.html-->
